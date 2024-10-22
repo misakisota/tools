@@ -1,0 +1,37 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "tools"
+  ],
+  "homepage": "https://github.com/misakisota/tools#readme",
+  "bugs": {
+    "url": "https://github.com/misakisota/tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/misakisota/tools.git"
+  },
+  "license": "MIT",
+  "author": "misakisota",
+  "scripts": {
+    "build": "eleventy",
+    "format": "prettier --write .",
+    "format:check": "prettier --check 'src/**/*",
+    "format:write": "prettier --write 'src/**/*",
+    "lint": "biome lint ./src",
+    "sort": "node scripts/sort.mjs",
+    "start": "eleventy --serve",
+    "watch": "eleventy --watch"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "pagefind": "^1.1.1",
+    "prettier": "^3.3.3"
+  },
+  "packageManager": "yarn@1.22.22"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+
+  <!-- Meta description -->
+  <meta name="description" content="{{ description }}">
+
+  <!-- Meta keywords -->
+  <meta name="keywords" content="misakisota, tools, convenient, easy, simple">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://misakisota.github.io/tools{{ page.url }}">
+
+  <!-- Open Graph Tags for social sharing -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://misakisota.github.io/tools{{ page.url }}">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+
+  {# <link rel="stylesheet" href="https://misakisota.github.io/tools/assets/css/style.css"> #}
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body class="container">
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
+  {% if breadcrumbs %}
+  <nav aria-label="breadcrumb">
+    <div class="breadcrumb">
+      {% for crumb in breadcrumbs %}
+      {% if not loop.first %}
+      &gt;
+      {% endif %}
+      {% if not loop.last %}
+      <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+      {% else %}
+      <span>{{ crumb.title }}</span>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+  {% endif %}
+  <main data-pagefind-body>
+    {{ content | safe }}
+  </main>
+</body>
+
+</html>
