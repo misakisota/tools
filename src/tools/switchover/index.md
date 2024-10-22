@@ -14,7 +14,7 @@ description: This tool will automatically resolve permission errors on Google Fo
 
 2. **Paste the link**<br>
    Paste the link that does not open after the following URL
-   Example: `https://misakisota.com/tools/switchover/automatic/?url=https://docs.google.com/forms/d/e/{id}/formrestricted`
+   Example: `https://misakisota.github.io/tools/switchover/automatic/?url=https://docs.google.com/forms/d/e/{id}/formrestricted`
 
 > **Note:** For `automatic`, the account is automatically switched. With `chooser`, you can choose your own account.
 
