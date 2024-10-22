@@ -1,0 +1,47 @@
+---
+title: Redirecting...
+layout: base.njk
+eleventyExcludeFromCollections: true
+---
+<blockquote><p><strong>Note:</strong> If it does not redirect correctly or an error occurs, please contact <a href="mailto:contact@misakisota.com">contact@misakisota.com</a>.</p></blockquote>
+<p id="result"></p>
+<script>
+  function checkUrl(url) {
+    try {
+      const parsedUrl = new URL(url);
+      const hostname = parsedUrl.hostname;
+      return (
+        parsedUrl.protocol === 'https:' &&
+        (hostname === 'google.com' || hostname.endsWith('.google.com'))
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  function generateViewUrl(id) {
+    return `https://docs.google.com/forms/d/e/${id}/viewform`;
+  }
+
+  function toViewUrl(url) {
+    // Remove any u/{number}/ pattern from the URL
+    url = url.replace(/\/u\/\d+\//, '/');
+
+    const googleFormsPattern =
+      /https:\/\/docs\.google\.com\/forms\/d\/e\/([a-zA-Z0-9_-]+)(\/(?:edit|formrestricted))?/;
+
+    const match = url.match(googleFormsPattern);
+    if (match) {
+      const id = match[1];
+      return generateViewUrl(id);
+    }
+
+    const newURL = new URL(url);
+    newURL.searchParams.delete('authuser');
+    newURL.searchParams.delete('pli');
+
+    return newURL.toString();
+  }
+</script>
+
+{{ content | safe }}

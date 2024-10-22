@@ -1,0 +1,23 @@
+---
+permalink: /switchover/chooser/
+layout: switchover.njk
+eleventyExcludeFromCollections: true
+---
+<script>
+  const params = new URLSearchParams(document.location.search);
+  const url = params.get('url');
+
+  if (!url) {
+    document.getElementById('result').textContent = 'Error: Please provide a URL';
+    throw new Error('No URL provided');
+  }
+
+  if (!checkUrl(url)) {
+    document.getElementById('result').textContent = 'Error: Invalid URL';
+    throw new Error('Invalid URL');
+  }
+
+  const encodedUrl = encodeURIComponent(toViewUrl(url));
+  const newUrl = `https://accounts.google.com/AccountChooser?continue=${encodedUrl}`;
+  window.location.href = newUrl;
+</script>

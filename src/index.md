@@ -17,4 +17,4 @@ description: This is a simple tool I created that does not require a backend
 
 1. **Automatic account switchover**<br>
    This tool will automatically resolve permission errors on Google Forms as much as possible.</br>
-   Click [here](#) to use this tool
+   Click [here](./switchover) to use this tool
